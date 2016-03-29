@@ -12,11 +12,29 @@ describe('Aircraft', function(){
    });
  });
 
- describe('changeStatus', function(){
-   it('should change isLanded of aircraft from true to false', function(){
-     var status = aircraft.isLanded;
-     aircraft.changeStatus();
-     expect(aircraft.isLanded).toEqual(!status);
+ describe('#takeOff', function(){
+   it('should change isLanded status to false', function(){
+     aircraft.takeOff();
+     expect(aircraft.isLanded).toEqual(false);
+   });
+   it('should raise an error if aircraft is already taken off', function(){
+     aircraft.takeOff();
+     expect(function(){
+       aircraft.takeOff();
+     }).toThrowError('Aircraft has already taken off');
+   });
+ });
+
+ describe('#land', function(){
+   it('should change isLanded status to true', function(){
+     aircraft.takeOff();
+     aircraft.land();
+     expect(aircraft.isLanded).toEqual(true);
+   });
+   it('should raise an error if aircraft is already landed', function(){
+     expect(function(){
+       aircraft.land();
+     }).toThrowError('Aircraft is already landed');
    });
  });
 });
