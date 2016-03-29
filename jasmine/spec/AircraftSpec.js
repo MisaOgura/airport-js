@@ -6,7 +6,7 @@ describe('Aircraft', function(){
    aircraft = new Aircraft();
  });
 
- describe('isLanded', function(){
+ describe('#isLanded', function(){
    it('should return true as a default', function(){
      expect(aircraft.isLanded).toEqual(true);
    });
