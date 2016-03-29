@@ -18,7 +18,7 @@ describe('Airport', function(){
     });
   });
 
-  describe('#allow landing', function(){
+  describe('#allowLanding', function(){
     it('should allow aircraft to land', function(){
       storageStatus = airport.storage.length
       airport.allowLanding();
